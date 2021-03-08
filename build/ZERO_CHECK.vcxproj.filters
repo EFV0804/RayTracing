@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\3D3-Prog\VIDAL Elise\RayTracing\build\CMakeFiles\b692cc19cc114f75d2d9e81e61f9a7af\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B2335A61-D561-34E4-9A91-6C05D3E91D70}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

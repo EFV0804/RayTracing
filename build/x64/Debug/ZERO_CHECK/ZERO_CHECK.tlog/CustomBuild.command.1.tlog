@@ -1,0 +1,10 @@
+^E:\3D3-PROG\VIDAL ELISE\RAYTRACING\BUILD\CMAKEFILES\B692CC19CC114F75D2D9E81E61F9A7AF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/3D3-Prog/VIDAL Elise/RayTracing" "-BE:/3D3-Prog/VIDAL Elise/RayTracing/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/3D3-Prog/VIDAL Elise/RayTracing/build/RayTracing.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
