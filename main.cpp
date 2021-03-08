@@ -2,19 +2,19 @@
 #include <fstream>
 #include "Ray.h"
 #include "Sphere.h"
-/*bool IsSphereHit(const Vec3& center, float radius, const Ray& r)
+bool IsSphereHit(const Vec3& center, float radius, const Ray& r)
 {    
 	Vec3 oc = r.origin() - center;
 	float a = dot(r.direction(), r.direction());
 	float b = 2.0 * dot(oc, r.direction());float c = dot(oc, oc) - radius*radius;
 	float discriminant = b*b - 4*a*c;
 	return (discriminant > 0);
-}*/
+}
 Vec3 color(const Ray& r){    
-	/*if (IsSphereHit(Vec3(0,0,-1), 0.5, r))
+	if (IsSphereHit(Vec3(0,0,-1), 0.5, r))
 	{
 		return Vec3(1, 0, 0);
-	}*/
+	}
 	Vec3 unitDirection = unitVector(r.direction());
 	float t = 0.5*(unitDirection.y() + 1.0);
 	return (1.0-t)*Vec3(1.0, 1.0, 1.0) + t*Vec3(0.5, 0.7, 1.0);}
@@ -26,7 +26,7 @@ int main() {
 
 	int nx = 200;
 	int ny = 100;
-	output << "P3\n" << nx << "" << ny << "\n255\n";
+	output << "P3\n" << nx << " " << ny << "\n255\n";
 	Vec3 lower_left_corner(-2.0, -1.0, -1.0);
 	Vec3 horizontal(4.0, 0.0, 0.0);
 	Vec3 vertical(0.0, 2.0, 0.0);
