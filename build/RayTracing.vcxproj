@@ -312,6 +312,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.h" />
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Random.h" />
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.h" />
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:\3D3-Prog\VIDAL Elise\RayTracing\build\ZERO_CHECK.vcxproj">

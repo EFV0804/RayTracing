@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
+#ifndef VEC3H
+#define VEC3H
 
 class Vec3 {
 public:
@@ -158,3 +160,4 @@ inline Vec3 &Vec3::operator/=(const float t) {
 inline Vec3 unitVector(Vec3 v) {
     return v / v.length();
 }
+#endif

@@ -1,4 +1,5 @@
-
+#ifndef RAYH
+#define RAYH
 #include "Vec3.h"
 
 class Ray {
@@ -20,3 +21,4 @@ public:
     Vec3 B;
 };
 
+#endif

@@ -5,16 +5,32 @@
 #include "Sphere.h"
 #include "Camera.h"
 #include "Random.h"
+
+
 float MAX_FLOAT = std::numeric_limits<float>::max();
+Vec3 randomUnitSphere()
+{
+	Vec3 p;
+	do
+	{
+		p = 2.0*Vec3(randomDouble(), randomDouble(), randomDouble()) - Vec3(1,1,1);
+	}
+	while (p.squaredLength() >= 1.0);
+	return p;
+}
 
 Vec3 color(const Ray& r, Hittable *world){    
 	hitRecord record;
-	if (world->hit(r, 0.0, MAX_FLOAT, record)){
-		return 0.5*Vec3(record.normal.x()+1, record.normal.y()+1, record.normal.z()+1);
+	if (world->hit(r, 0.001, MAX_FLOAT, record)){
+		Vec3 target = record.p + record.normal + randomUnitSphere();
+		return 0.5 * color(Ray(record.p, target - record.p), world);
 	}
-	Vec3 unitDirection = unitVector(r.direction());
-	float t = 0.5*(unitDirection.y() + 1.0);
-	return (1.0-t)*Vec3(1.0, 1.0, 1.0) + t*Vec3(0.5, 0.7, 1.0);}
+	else
+	{
+		Vec3 unitDirection = unitVector(r.direction());
+		float t = 0.5*(unitDirection.y() + 1.0);
+		return (1.0-t)*Vec3(1.0, 1.0, 1.0) + t*Vec3(0.5, 0.7, 1.0);}
+	}
 
 int main() {
 	std::ofstream output;
@@ -44,7 +60,7 @@ int main() {
 				col += color(r, world);
 			}
 			col /= float(ns);
-
+			col = Vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 			int ir = int (255.99*col[0]);
 			int ig = int (255.99*col[1]);
 			int ib = int (255.99*col[2]);
