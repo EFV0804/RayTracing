@@ -10,6 +10,7 @@ public:
     virtual bool hit(const Ray& r, float tMin, float tMax, hitRecord& record) const;
     Vec3 center;
     float radius;
+    Material *matPtr;
 };
 
 bool Sphere::hit(const Ray&r, float tMin, float tMax, hitRecord& record) const
@@ -27,6 +28,7 @@ bool Sphere::hit(const Ray&r, float tMin, float tMax, hitRecord& record) const
             record.t = temp;
             record.p = r.pointAtParameter(record.t);
             record.normal = (record.p - center) / radius;
+            record.matPtr = matPtr;
             return true;
         }
         temp = (-b +sqrt(discriminant))/ a;
@@ -35,6 +37,7 @@ bool Sphere::hit(const Ray&r, float tMin, float tMax, hitRecord& record) const
             record.t = temp;
             record.p = r.pointAtParameter(record.t);
             record.normal = (record.p - center) / radius;
+            record.matPtr = matPtr;
             return true;
         }
     }
