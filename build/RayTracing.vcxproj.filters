@@ -4,12 +4,6 @@
     <ClCompile Include="E:\3D3-Prog\VIDAL Elise\RayTracing\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Vec3.h">
@@ -21,10 +15,13 @@
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Hittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.h">
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.h">
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

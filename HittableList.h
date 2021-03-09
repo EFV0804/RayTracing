@@ -1,26 +1,32 @@
-//
-// Created by gaetz on 14/02/2020.
-//
+#ifndef HITTABLELISTH
+#define HITTABLELISTH
 
-#ifndef HITTABLE_LIST_H
-#define HITTABLE_LIST_H
+#include"Hittable.h"
 
-#include "Hittable.h"
-
-class HittableList : public Hittable {
+class HittableList: public Hittable
+{
 public:
     HittableList() {}
-
-    HittableList(Hittable **l, int n) {
-        list = l;
-        listSize = n;
-    }
-
-    virtual bool hit(const Ray &r, float tMin, float tMax, HitRecord &rec) const;
-
+    HittableList(Hittable **l, int n) {list = l; listSize = n;}
+    virtual bool hit( const Ray& r, float tMin, float tMax, hitRecord& record) const;
     Hittable **list;
     int listSize;
 };
 
-
-#endif //HITTABLE_LIST_H
+bool HittableList::hit(const Ray& r, float tMin, float tMax, hitRecord& record) const
+{
+    hitRecord tempRecord;
+    bool hitAnything = false;
+    double closestT = tMax;
+    for (int i = 0; i < listSize; i++)
+    {
+        if(list[i]->hit(r, tMin, closestT, tempRecord))
+        {
+            hitAnything = true;
+            closestT = tempRecord.t;
+            record = tempRecord;
+        }
+    }
+    return hitAnything;
+}
+#endif

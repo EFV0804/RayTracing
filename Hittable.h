@@ -1,26 +1,18 @@
-//
-// Created by gaetz on 14/02/2020.
-//
-
-#ifndef HITTABLE_H
-#define HITTABLE_H
+#ifndef HITTABLEH
+#define HITTABLEH
 
 #include "Ray.h"
 
-struct HitRecord {
+struct hitRecord
+{
     float t;
     Vec3 p;
     Vec3 normal;
 };
-
-class Hittable {
+class Hittable
+{
 public:
-    virtual bool hit(
-            const Ray &r,
-            float tMin,
-            float tMax,
-            HitRecord &rec
-    ) const = 0;
+    virtual bool hit(const Ray& r, float tMin, float tMax, hitRecord& record) const = 0;
 };
 
-#endif //HITTABLE_H
+#endif

@@ -309,10 +309,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Vec3.h" />
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Ray.h" />
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Hittable.h" />
-    <ClCompile Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.cpp" />
-    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.h" />
-    <ClCompile Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.cpp" />
     <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\HittableList.h" />
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Random.h" />
+    <ClInclude Include="E:\3D3-Prog\VIDAL Elise\RayTracing\Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:\3D3-Prog\VIDAL Elise\RayTracing\build\ZERO_CHECK.vcxproj">

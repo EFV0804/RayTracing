@@ -1,9 +1,3 @@
-//
-// Created by gaetz on 13/02/2020.
-//
-
-#ifndef RAY_H
-#define RAY_H
 
 #include "Vec3.h"
 
@@ -26,5 +20,3 @@ public:
     Vec3 B;
 };
 
-
-#endif //RAY_H
