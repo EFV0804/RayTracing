@@ -171,4 +171,8 @@ inline Vec3 randomUnitSphere()
 	while (p.squaredLength() >= 1.0);
 	return p;
 }
+inline Vec3 reflect(const Vec3& v, const Vec3& n)
+{
+    return v - 2*dot(v,n)*n;
+}
 #endif

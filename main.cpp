@@ -39,12 +39,13 @@ int main() {
 	int ns = 100;
 	output << "P3\n" << nx << " " << ny << "\n255\n";
 
-	Hittable *list[2];
-	Lambert *mat1 = new Lambert(Vec3(0.8,0.3,0.3));
-	Lambert *mat2 = new Lambert(Vec3(0.8,0.8,0.0));
-	list[0] = new Sphere(Vec3(0,0,-1), 0.5, mat1);
-	list[1] = new Sphere(Vec3(0,-100.5,-1), 100, mat2);
-	Hittable * world = new HittableList(list, 2);
+	Hittable *list[4];
+	list[0] = new Sphere(Vec3(0,0,-1), 0.5,new Lambert(Vec3(0.8,0.3,0.3)));
+	list[1] = new Sphere(Vec3(0,-100.5,-1), 100, new Lambert(Vec3(0.8,0.8,0.0)));
+	list[2] = new Sphere(Vec3(1,0,-1), 0.5, new Metal(Vec3(0.8,0.6,0.2)));
+	list[3] = new Sphere(Vec3(-1,0,-1), 0.5, new Metal(Vec3(0.8,0.8,0.8)));
+
+	Hittable * world = new HittableList(list, 4);
 	Camera cam;
 
 	for(int j = ny-1; j>=0; j--)
