@@ -37,5 +37,51 @@ class Metal : public Material
     Vec3 albedo;
     float fuzz;
 };
+class Dielectric : public Material
+{
+    public:
+    Dielectric(float ri): refractionIndex(ri) {}
+    virtual bool scatter(const Ray& rayIn, const hitRecord& rec, Vec3& attenuation, Ray& scattered) const
+    {
+        Vec3 outwardNormal;
+        Vec3 reflected = reflect(rayIn.direction(), rec.normal);
+        float niOverNt;
+        attenuation = Vec3(1.0,1.0,1.0);
+        Vec3 refracted;
+        float reflectProb;
+        float cosine;
+
+        if(dot(rayIn.direction(), rec.normal) > 0)
+        {
+            outwardNormal = -rec.normal;
+            niOverNt = refractionIndex;
+            cosine = refractionIndex * dot(rayIn.direction(), rec.normal)/rayIn.direction().length();
+        }
+        else
+        {
+            outwardNormal = rec.normal;
+            niOverNt = 1.0 / refractionIndex;
+            cosine = -dot(rayIn.direction(), rec.normal)/rayIn.direction().length();
+        }
+        if (refract(rayIn.direction(), outwardNormal, niOverNt, refracted))
+        {
+            reflectProb = schlick(cosine, refractionIndex);
+        }
+        else
+        {
+            reflectProb = 1.0;
+        }
+        if (randomDouble() < reflectProb)
+        {
+            scattered = Ray(rec.p, reflected);
+        }
+        else
+        {
+            scattered = Ray(rec.p, refracted);
+        }
+        return true;
+    }
+    float refractionIndex;
+};
 #endif
 
