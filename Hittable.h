@@ -1,6 +1,7 @@
 #ifndef HITTABLEH
 #define HITTABLEH
 #include "Ray.h"
+//#include "Material.h"
 
 class Material;
 

@@ -1,17 +1,17 @@
 #ifndef MATERIALH
 #define MATERIALH
-#include"Hittable.h"
+#include "Hittable.h"
+//#include "Ray.h"
+//#include "Vec3.h"
 
-struct hitRecord;
+//struct hitRecord;
 
 class Material
 {
 public:
     virtual bool scatter(const Ray& rayIn, const hitRecord& record, Vec3& attenuation, Ray& scattered) const = 0;
 };
-#endif
-
-class Lambert : public Material{
+class Lambert: public Material{
     public:
         Lambert(const Vec3& a): albedo(a) {}
         virtual bool scatter(const Ray& rayIn, const hitRecord& record, Vec3& attenuation, Ray& scattered) const {
@@ -21,4 +21,7 @@ class Lambert : public Material{
             return true;
         }
         Vec3 albedo;
+
 };
+#endif
+

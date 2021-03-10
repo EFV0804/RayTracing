@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
+#include "Random.h"
 #ifndef VEC3H
 #define VEC3H
 
@@ -159,5 +160,15 @@ inline Vec3 &Vec3::operator/=(const float t) {
 
 inline Vec3 unitVector(Vec3 v) {
     return v / v.length();
+}
+inline Vec3 randomUnitSphere()
+{
+	Vec3 p;
+	do
+	{
+		p = 2.0*Vec3(randomDouble(), randomDouble(), randomDouble()) - Vec3(1,1,1);
+	}
+	while (p.squaredLength() >= 1.0);
+	return p;
 }
 #endif
