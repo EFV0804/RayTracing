@@ -26,15 +26,16 @@ class Lambert: public Material{
 class Metal : public Material
 {
     public:
-    Metal(const Vec3& a): albedo(a) {}
+    Metal(const Vec3& a, float fuzziness): albedo(a) { if (fuzziness <1) fuzz = fuzziness; else fuzz = 1;}
     virtual bool scatter(const Ray& rayIn, const hitRecord& rec, Vec3& attenuation, Ray& scattered) const
     {
         Vec3 reflected = reflect(unitVector(rayIn.direction()), rec.normal);
-        scattered = Ray(rec.p, reflected);
+        scattered = Ray(rec.p, reflected + fuzz*randomUnitSphere());
         attenuation = albedo;
         return (dot(scattered.direction(), rec.normal) > 0);
     }
     Vec3 albedo;
+    float fuzz;
 };
 #endif
 
