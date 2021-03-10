@@ -9,7 +9,7 @@ struct hitRecord
     float t;
     Vec3 p;
     Vec3 normal;
-    Material *matPtr;
+    std::shared_ptr<Material> matPtr;
 };
 class Hittable
 {

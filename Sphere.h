@@ -6,11 +6,11 @@ class Sphere: public Hittable
 {
 public:
     Sphere() {}
-    Sphere(Vec3 cen, float r): center(cen), radius(r) {};
+    Sphere(Vec3 cen, float r, Material *mat): center(cen), radius(r), matPtr(mat) {};
     virtual bool hit(const Ray& r, float tMin, float tMax, hitRecord& record) const;
     Vec3 center;
     float radius;
-    Material *matPtr;
+    std::shared_ptr<Material> matPtr;
 };
 
 bool Sphere::hit(const Ray&r, float tMin, float tMax, hitRecord& record) const
